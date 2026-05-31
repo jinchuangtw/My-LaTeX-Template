@@ -1,0 +1,168 @@
+% ============================================================
+% MathFunction.tex
+% Dissertation-wide mathematical notation and environments
+% ============================================================
+
+% ---------- Theorem-like environments ----------
+\newtheorem{assumption}{Assumption}
+\newtheorem{remark}{Remark}
+\newtheorem{lemma}{Lemma}
+
+% ---------- Basic math operators ----------
+\DeclareMathOperator{\Tr}{tr}
+\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator{\Exp}{Exp}
+\DeclareMathOperator{\Log}{Log}
+
+% ---------- Sets and number systems ----------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+
+% ---------- Text / debug helpers ----------
+\newcommand{\todo}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\rev}[1]{\textcolor{red}{#1}}
+
+% ---------- Vector and matrix style ----------
+% Use \vect{} for vectors and \mat{} for matrices.
+% Internally both are bold, but semantic commands keep the source readable.
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\mat}[1]{\mathbf{#1}}
+\newcommand{\bvec}[1]{\bm{#1}}
+\newcommand{\bmatr}[1]{\bm{#1}}
+
+% Common vectors/matrices
+\newcommand{\zero}{\mathbf{0}}
+\newcommand{\eye}{\mathbf{I}}
+
+% ---------- Transpose, inverse, inverse transpose ----------
+\newcommand{\T}{^{\top}}
+\newcommand{\inv}{^{-1}}
+\newcommand{\invT}{^{-\top}}
+
+% ---------- Norms and weighted norms ----------
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\sqnorm}[1]{\left\lVert #1 \right\rVert^{2}}
+\newcommand{\wnorm}[2]{\left\lVert #1 \right\rVert^{2}_{#2}}
+
+% ---------- Probability ----------
+\newcommand{\Prob}{p}
+\newcommand{\given}{\,|\,}
+\newcommand{\Gaussian}[2]{\mathcal{N}\!\left(#1,#2\right)}
+
+% ---------- Optimization variables ----------
+\newcommand{\stateSet}{\mathcal{X}}
+\newcommand{\measSet}{\mathcal{Z}}
+\newcommand{\state}{\vect{x}}
+\newcommand{\meas}{\vect{z}}
+\newcommand{\noise}{\vect{n}}
+\newcommand{\res}{\vect{e}}
+
+% Indexed forms
+\newcommand{\statei}[1]{\vect{x}_{#1}}
+\newcommand{\meask}[1]{\vect{z}_{#1}}
+\newcommand{\noisek}[1]{\vect{n}_{#1}}
+\newcommand{\resk}[1]{\vect{e}_{#1}}
+
+% Covariance and information matrices
+\newcommand{\cov}{\bmatr{\Sigma}}
+\newcommand{\info}{\bmatr{\Omega}}
+\newcommand{\covk}[1]{\bmatr{\Sigma}_{#1}}
+\newcommand{\infok}[1]{\bmatr{\Omega}_{#1}}
+
+% Jacobian / Hessian
+\newcommand{\Jac}{\mat{J}}
+\newcommand{\Hess}{\mat{H}}
+
+% ---------- SLAM / factor graph ----------
+\newcommand{\cost}{C}
+\newcommand{\prediction}{\vect{h}}
+\newcommand{\predk}[1]{\vect{h}_{#1}}
+\newcommand{\factor}{\phi}
+\newcommand{\factorgraph}{\mathcal{G}}
+
+% ---------- Coordinate frames ----------
+\newcommand{\FrameW}{W}
+\newcommand{\FrameB}{B}
+\newcommand{\FrameC}{C}
+\newcommand{\FrameI}{I}
+\newcommand{\FrameG}{G}
+
+% ---------- Coordinate-frame notation ----------
+% Rotation matrix:
+%   \Rot{A}{B} -> {}^{A}_{B}\mathbf{R}
+% Meaning:
+%   rotation of frame B with respect to frame A,
+%   mapping coordinates from B to A:
+%   \mathbf{v}^{A} = {}^{A}_{B}\mathbf{R}\mathbf{v}^{B}
+\newcommand{\Rot}[2]{\prescript{#1}{#2}{\mathbf{R}}}
+\newcommand{\EstRot}[2]{\ensuremath{\prescript{#1}{#2}{\hat{\mathbf{R}}}}}
+
+% Homogeneous transformation matrix:
+%   \Tf{A}{B} -> {}^{A}_{B}\mathbf{T}
+\newcommand{\Tf}[2]{\prescript{#1}{#2}{\mathbf{T}}}
+\newcommand{\EstTf}[2]{\ensuremath{\prescript{#1}{#2}{\hat{\mathbf{T}}}}}
+
+% Translation vector:
+%   \tvec{A}{AB} -> \mathbf{t}^{A/AB}
+% Meaning:
+%   vector from origin of A to origin of B, expressed in frame A.
+\newcommand{\tvec}[2]{\mathbf{t}^{#1/#2}}
+
+% Point:
+%   \pt{A} -> \mathbf{p}^{A}
+% Meaning:
+%   point p expressed in frame A.
+\newcommand{\pt}[1]{\mathbf{p}^{#1}}
+
+% General vector expressed in a frame:
+%   \vectf{v}{A} -> \mathbf{v}^{A}
+\newcommand{\vectf}[2]{\mathbf{#1}^{#2}}
+
+% General point with point name and frame:
+%   \pointf{P}{A} -> \mathbf{p}_{P}^{A}
+\newcommand{\pointf}[2]{\mathbf{p}_{#1}^{#2}}
+% Relative measurement
+\newcommand{\RelMeas}[3]{\mat{Z}^{#1}_{#2,#3}}
+
+% ---------- Lie groups and Lie algebra ----------
+\newcommand{\SO}[1]{\mathrm{SO}(#1)}
+\newcommand{\SE}[1]{\mathrm{SE}(#1)}
+\newcommand{\so}[1]{\mathfrak{so}(#1)}
+\newcommand{\se}[1]{\mathfrak{se}(#1)}
+
+\newcommand{\hatop}[1]{#1^{\wedge}}
+\newcommand{\veeop}[1]{#1^{\vee}}
+\newcommand{\skewm}[1]{\left[#1\right]_{\times}}
+
+% Common Lie algebra vectors
+\newcommand{\liephi}{\bvec{\phi}}
+\newcommand{\lietheta}{\bvec{\theta}}
+\newcommand{\liexi}{\bvec{\xi}}
+
+% ---------- Plane notation ----------
+% Useful for your ground-plane factor later.
+\newcommand{\plane}{\bm{\pi}}
+\newcommand{\normal}{\vect{n}}
+\newcommand{\planed}{d}
+\newcommand{\PlaneEq}{\normal\T \vect{p} + \planed = 0}
+\newcommand{\PlaneDist}[1]{\normal\T #1 + \planed}
+
+% ---------- Convenient matrix environments ----------
+\newenvironment{bmat}{\begin{bmatrix}}{\end{bmatrix}}
+
+% Equation + aligned environment
+\usepackage{environ}
+\NewEnviron{ee}{
+\begin{equation}
+    \begin{aligned}
+        \BODY
+    \end{aligned}
+\end{equation}
+}
+
+% ---------- Reference helpers ----------
+\newcommand{\figref}[1]{Fig.~\ref{#1}}
+\newcommand{\tabref}[1]{Table~\ref{#1}}

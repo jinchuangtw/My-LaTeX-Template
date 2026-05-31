@@ -1,0 +1,194 @@
+%! TeX root = ../../main.tex
+%% Helper for showing LaTeX commands in tables
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+
+To use this template, please follow the instructions in \code{README.md} to compile the source code. Figures can be inserted using \code{\subfloat} environment as \figref{fig:main-label} shows.
+
+\begin{figure}[htbp]
+  \centering
+  \subfloat[caption-a]{
+    \includegraphics[width=0.31\textwidth]{Figure/NCKU_LOGO.jpg}
+    \label{fig:label-a}
+  }
+  \hfill
+  \subfloat[caption-b]{
+    \includegraphics[width=0.31\textwidth]{Figure/NCKU_LOGO_2.png}
+    \label{fig:label-b}
+  }
+  \hfill
+  \subfloat[caption-c]{
+    \includegraphics[width=0.31\textwidth]{Figure/IEC_Lab_Logo.png}
+    \label{fig:label-b}
+  }
+  \caption{Example figure.}
+  \label{fig:main-label}
+\end{figure}
+
+Table~\ref{tab:math_function_summary}, \ref{tab:math_function_summary_2} and \ref{tab:math_function_summary_3} summarize the usage of customized mathematical commands in this template. See the source code along with \code{main.pdf} to understand how to typeset equations in detail.
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Summary of general mathematical commands.}
+    \label{tab:math_function_summary}
+    \begin{tabularx}{\textwidth}{X X X}
+        \hline
+
+        \multicolumn{3}{l}{\textbf{Basic math operators}} \\
+        \hline
+        trace & \code{\Tr} & $\Tr$ \\
+        diagonal matrix & \code{\diag} & $\diag$ \\
+        rank & \code{\rank} & $\rank$ \\
+        argmin & \code{\argmin_{\stateSet}} & $\argmin_{\stateSet}$ \\
+        argmax & \code{\argmax_{\stateSet}} & $\argmax_{\stateSet}$ \\
+        exponential map & \code{\Exp} & $\Exp$ \\
+        logarithmic map & \code{\Log} & $\Log$ \\
+        \hline
+
+        \multicolumn{3}{l}{\textbf{Sets and number systems}} \\
+        \hline
+        real numbers & \code{\R} & $\R$ \\
+        natural numbers & \code{\N} & $\N$ \\
+        \hline
+
+        \multicolumn{3}{l}{\textbf{Vector and matrix styles}} \\
+        \hline
+        vector & \code{\vect{x}} & $\vect{x}$ \\
+        matrix & \code{\mat{A}} & $\mat{A}$ \\
+        bold vector with Greek symbol & \code{\bvec{\phi}} & $\bvec{\phi}$ \\
+        bold matrix with Greek symbol & \code{\bmatr{\Sigma}} & $\bmatr{\Sigma}$ \\
+        zero vector/matrix & \code{\zero} & $\zero$ \\
+        identity matrix & \code{\eye} & $\eye$ \\
+        \hline
+
+        \multicolumn{3}{l}{\textbf{Transpose and inverse}} \\
+        \hline
+        transpose & \code{\T} & $\mat{A}\T$ \\
+        inverse & \code{\inv} & $\mat{A}\inv$ \\
+        inverse transpose & \code{\invT} & $\mat{A}\invT$ \\
+        \hline
+
+        \multicolumn{3}{l}{\textbf{Norms}} \\
+        \hline
+        norm & \code{\norm{\vect{x}}} & $\norm{\vect{x}}$ \\
+        squared norm & \code{\sqnorm{\vect{x}}} & $\sqnorm{\vect{x}}$ \\
+        weighted squared norm & \code{\wnorm{\resk{k}}{\infok{k}}} & $\wnorm{\resk{k}}{\infok{k}}$ \\
+        \hline
+
+    \end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Summary of mathematical commands for specific topics.}
+    \label{tab:math_function_summary_2}
+    \begin{tabularx}{\textwidth}{X X X}
+        \hline
+        \multicolumn{3}{l}{\textbf{Probability}} \\
+        \hline
+        probability density & \code{\Prob} & $\Prob$ \\
+        given / conditional bar & \code{\given} & $p(\stateSet \given \measSet)$ \\
+        Gaussian distribution & \code{\Gaussian{\zero}{\covk{k}}} & $\Gaussian{\zero}{\covk{k}}$ \\
+        \hline
+
+        \multicolumn{3}{l}{\textbf{Optimization variables}} \\
+        \hline
+        state set & \code{\stateSet} & $\stateSet$ \\
+        measurement set & \code{\measSet} & $\measSet$ \\
+        state vector & \code{\state} & $\state$ \\
+        measurement vector & \code{\meas} & $\meas$ \\
+        noise vector & \code{\noise} & $\noise$ \\
+        residual vector & \code{\res} & $\res$ \\
+        indexed state & \code{\statei{i}} & $\statei{i}$ \\
+        indexed measurement & \code{\meask{k}} & $\meask{k}$ \\
+        indexed noise & \code{\noisek{k}} & $\noisek{k}$ \\
+        indexed residual & \code{\resk{k}} & $\resk{k}$ \\
+        \hline
+
+        \multicolumn{3}{l}{\textbf{Covariance and information matrices}} \\
+        \hline
+        covariance matrix & \code{\cov} & $\cov$ \\
+        information matrix & \code{\info} & $\info$ \\
+        indexed covariance matrix & \code{\covk{k}} & $\covk{k}$ \\
+        indexed information matrix & \code{\infok{k}} & $\infok{k}$ \\
+        \hline
+
+        \multicolumn{3}{l}{\textbf{Jacobian and Hessian}} \\
+        \hline
+        Jacobian matrix & \code{\Jac} & $\Jac$ \\
+        Hessian matrix & \code{\Hess} & $\Hess$ \\
+        \hline
+ 
+    \end{tabularx}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \small
+    \caption{Another summary of mathematical commands for specific topics.}
+    \label{tab:math_function_summary_3}
+    \begin{tabularx}{\textwidth}{X X X}
+        \hline
+        \multicolumn{3}{l}{\textbf{SLAM and factor graph}} \\
+        \hline
+        cost function & \code{\cost} & $\cost$ \\
+        prediction function & \code{\prediction} & $\prediction$ \\
+        indexed prediction function & \code{\predk{k}} & $\predk{k}$ \\
+        factor & \code{\factor} & $\factor$ \\
+        factor graph & \code{\factorgraph} & $\factorgraph$ \\
+        \hline
+
+        \multicolumn{3}{l}{\textbf{Coordinate frames}} \\
+        \hline
+        world frame & \code{\FrameW} & $\FrameW$ \\
+        body frame & \code{\FrameB} & $\FrameB$ \\
+        camera frame & \code{\FrameC} & $\FrameC$ \\
+        IMU frame & \code{\FrameI} & $\FrameI$ \\
+        GNSS/global frame & \code{\FrameG} & $\FrameG$ \\
+        \hline
+
+        \multicolumn{3}{l}{\textbf{Coordinate-frame notation}} \\
+        \hline
+        rotation matrix & \code{\Rot{A}{B}} & $\Rot{A}{B}$ \\
+        estimated rotation matrix & \code{\EstRot{A}{B}} & $\EstRot{A}{B}$ \\
+        homogeneous transformation matrix & \code{\Tf{A}{B}} & $\Tf{A}{B}$ \\
+        estimated transformation matrix & \code{\EstTf{A}{B}} & $\EstTf{A}{B}$ \\
+        translation vector & \code{\tvec{A}{AB}} & $\tvec{A}{AB}$ \\
+        point expressed in a frame & \code{\pt{A}} & $\pt{A}$ \\
+        general vector expressed in a frame & \code{\vectf{v}{A}} & $\vectf{v}{A}$ \\
+        named point expressed in a frame & \code{\pointf{P}{A}} & $\pointf{P}{A}$ \\
+        relative measurement & \code{\RelMeas{A}{B}{k}} & $\RelMeas{A}{B}{k}$ \\
+        \hline
+
+        \multicolumn{3}{l}{\textbf{Lie groups and Lie algebra}} \\
+        \hline
+        special orthogonal group & \code{\SO{3}} & $\SO{3}$ \\
+        special Euclidean group & \code{\SE{3}} & $\SE{3}$ \\
+        Lie algebra of SO group & \code{\so{3}} & $\so{3}$ \\
+        Lie algebra of SE group & \code{\se{3}} & $\se{3}$ \\
+        hat operator & \code{\hatop{\bvec{\phi}}} & $\hatop{\bvec{\phi}}$ \\
+        vee operator & \code{\veeop{\mat{A}}} & $\veeop{\mat{A}}$ \\
+        skew-symmetric matrix & \code{\skewm{\vect{a}}} & $\skewm{\vect{a}}$ \\
+        Lie algebra vector phi & \code{\liephi} & $\liephi$ \\
+        Lie algebra vector theta & \code{\lietheta} & $\lietheta$ \\
+        Lie algebra vector xi & \code{\liexi} & $\liexi$ \\
+        \hline
+
+        \multicolumn{3}{l}{\textbf{Plane notation}} \\
+        \hline
+        plane parameter & \code{\plane} & $\plane$ \\
+        plane normal vector & \code{\normal} & $\normal$ \\
+        plane distance parameter & \code{\planed} & $\planed$ \\
+        plane equation & \code{\PlaneEq} & $\PlaneEq$ \\
+        point-to-plane signed distance & \code{\PlaneDist{\pt{W}}} & $\PlaneDist{\pt{W}}$ \\
+        \hline
+
+        \multicolumn{3}{l}{\textbf{Reference helpers}} \\
+        \hline
+        figure reference & \code{\figref{fig:example}} & Fig.~1.1 \\
+        table reference & \code{\tabref{tab:example}} & Table~1.1 \\
+        \hline
+    \end{tabularx}
+\end{table}
+

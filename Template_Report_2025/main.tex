@@ -1,0 +1,55 @@
+%% -------------------
+\documentclass[a4paper]{article}
+
+% Property of this paper
+\newcommand{\className}{Course Name}
+\newcommand{\classTeacher}{Prof. OOO}
+\newcommand{\classPaperTitle}{Homework ??}
+
+\input{ReportEnv.tex}
+\input{CodeEnv.tex}
+\input{MathFunction.tex}
+
+\title{Title}
+\author{Name}
+\date{\today}
+
+\begin{document}
+
+\input{MyTitlepage.tex}
+
+\section{Introduction}
+According to \cite{hu2024maskneed}, dodoloo, dodododa. Also, Fig.~\ref{fig:main-label} shows that, this template should work. Feel free to contact the owner of this repository if you find anything strange.
+
+\begin{figure}[htbp]
+  \centering
+  \subfloat[caption-a]{
+    \includegraphics[width=0.31\textwidth]{Figure/NCKU_LOGO.jpg}
+    \label{fig:label-a}
+  }
+  \hfill
+  \subfloat[caption-b]{
+    \includegraphics[width=0.31\textwidth]{Figure/NCKU_LOGO_2.png}
+    \label{fig:label-b}
+  }
+  \hfill
+  \subfloat[caption-c]{
+    \includegraphics[width=0.31\textwidth]{Figure/IEC_Lab_Logo.png}
+    \label{fig:label-c}
+  }
+  \caption{Example figure.}
+  \label{fig:main-label}
+\end{figure}
+
+
+\bibliographystyle{ieeetr}
+\bibliography{ref.bib}
+
+\newpage
+\appendix
+
+\section{Appendix: Matlab Code}
+\begin{lstinputlisting}[style=Matlab]{main.m}
+\end{lstinputlisting}
+
+\end{document}

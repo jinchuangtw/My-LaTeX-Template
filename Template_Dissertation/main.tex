@@ -1,0 +1,55 @@
+\documentclass[openany, phd]{nckuthesis}
+\input{Inf_Env_Fun/NCKU_Inf.tex}
+\usepackage[utf8]{inputenc}
+% Using the tex-text mapping for ligatures etc.
+\defaultfontfeatures{Mapping=tex-text}
+
+\input{Inf_Env_Fun/ThesisEnv.tex}
+\input{Inf_Env_Fun/MathFunction.tex}
+\input{Inf_Env_Fun/CodeEnv.tex}
+
+
+\begin{document}
+
+
+\frontmatter
+\makecover
+\newpage
+% \includepdf[pages=-]{Frontmatter/Defense_Sign.pdf} % 插入口試合格證明
+\setcounter{page}{1}
+\thispagestyle{empty}
+
+\input{Frontmatter/Abstract.tex}
+\input{Frontmatter/Acknowledgements.tex}
+
+\newpage
+\tableofcontents
+\addcontentsline{toc}{chapter}{Contents}
+\newpage
+\listoffigures
+\addcontentsline{toc}{chapter}{List of Figures}
+\newpage
+\listoftables
+\addcontentsline{toc}{chapter}{List of Tables}
+\newpage
+\listofalgorithms
+\addcontentsline{toc}{chapter}{List of Algorithms}
+
+\mainmatter
+% Your thesis goes here
+
+\chapter{Introduction} \label{ch:intro}
+\input{Content/Introduction/Introduction}
+
+\backmatter
+\phantomsection
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliographystyle{ieeetr}
+
+
+% Your bibliography goes here
+\bibliography{Bib/myReference.bib}
+
+
+\end{document}
+
