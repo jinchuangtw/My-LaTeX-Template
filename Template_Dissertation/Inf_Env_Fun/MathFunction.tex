@@ -49,7 +49,7 @@
 
 % ---------- Probability ----------
 \newcommand{\Prob}{p}
-\newcommand{\given}{\,|\,}
+\newcommand{\given}{|}
 \newcommand{\Gaussian}[2]{\mathcal{N}\!\left(#1,#2\right)}
 
 % ---------- Optimization variables ----------
@@ -91,25 +91,73 @@
 \newcommand{\FrameG}{G}
 
 % ---------- Coordinate-frame notation ----------
+% Required package:
+% \usepackage{tensor}
+
 % Rotation matrix:
-%   \Rot{A}{B} -> {}^{A}_{B}\mathbf{R}
-% Meaning:
-%   rotation of frame B with respect to frame A,
-%   mapping coordinates from B to A:
-%   \mathbf{v}^{A} = {}^{A}_{B}\mathbf{R}\mathbf{v}^{B}
-\newcommand{\Rot}[2]{\prescript{#1}{#2}{\mathbf{R}}}
-\newcommand{\EstRot}[2]{\ensuremath{\prescript{#1}{#2}{\hat{\mathbf{R}}}}}
+%   \Rot{W}{B}    -> {}^{W}_{B}\mathbf{R}
+%   \Rot[i]{W}{B} -> {}^{W}_{B}\mathbf{R}_{i}
+\newcommand{\Rot}[3][]{%
+    \ensuremath{%
+    \if\relax\detokenize{#1}\relax
+        \tensor*[^{#2}_{#3}]{\mathbf{R}}{}%
+    \else
+        \tensor*[^{#2}_{#3}]{\mathbf{R}}{_{#1}}%
+    \fi
+    }%
+}
+
+% Estimated / predicted rotation matrix:
+%   \EstRot{W}{B}    -> {}^{W}_{B}\hat{\mathbf{R}}
+%   \EstRot[i]{W}{B} -> {}^{W}_{B}\hat{\mathbf{R}}_{i}
+\newcommand{\EstRot}[3][]{%
+    \ensuremath{%
+    \if\relax\detokenize{#1}\relax
+        \tensor*[^{#2}_{#3}]{\hat{\mathbf{R}}}{}%
+    \else
+        \tensor*[^{#2}_{#3}]{\hat{\mathbf{R}}}{_{#1}}%
+    \fi
+    }%
+}
 
 % Homogeneous transformation matrix:
-%   \Tf{A}{B} -> {}^{A}_{B}\mathbf{T}
-\newcommand{\Tf}[2]{\prescript{#1}{#2}{\mathbf{T}}}
-\newcommand{\EstTf}[2]{\ensuremath{\prescript{#1}{#2}{\hat{\mathbf{T}}}}}
+%   \Tf{W}{B}    -> {}^{W}_{B}\mathbf{T}
+%   \Tf[i]{W}{B} -> {}^{W}_{B}\mathbf{T}_{i}
+\newcommand{\Tf}[3][]{%
+    \ensuremath{%
+    \if\relax\detokenize{#1}\relax
+        \tensor*[^{#2}_{#3}]{\mathbf{T}}{}%
+    \else
+        \tensor*[^{#2}_{#3}]{\mathbf{T}}{_{#1}}%
+    \fi
+    }%
+}
+
+% Estimated / predicted homogeneous transformation matrix:
+%   \EstTf{W}{B}    -> {}^{W}_{B}\hat{\mathbf{T}}
+%   \EstTf[i]{W}{B} -> {}^{W}_{B}\hat{\mathbf{T}}_{i}
+\newcommand{\EstTf}[3][]{%
+    \ensuremath{%
+    \if\relax\detokenize{#1}\relax
+        \tensor*[^{#2}_{#3}]{\hat{\mathbf{T}}}{}%
+    \else
+        \tensor*[^{#2}_{#3}]{\hat{\mathbf{T}}}{_{#1}}%
+    \fi
+    }%
+}
 
 % Translation vector:
-%   \tvec{A}{AB} -> \mathbf{t}^{A/AB}
-% Meaning:
-%   vector from origin of A to origin of B, expressed in frame A.
-\newcommand{\tvec}[2]{\mathbf{t}^{#1/#2}}
+%   \tvec{W}{B}    -> {}^{W}\mathbf{t}^{W/B}
+%   \tvec[i]{W}{B} -> {}^{W}\mathbf{t}_{i}^{W/B}
+\newcommand{\tvec}[3][]{%
+    \ensuremath{%
+    \if\relax\detokenize{#1}\relax
+        \tensor*[^{#2}]{\mathbf{t}}{^{#2/#3}}%
+    \else
+        \tensor*[^{#2}]{\mathbf{t}}{_{#1}^{#2/#3}}%
+    \fi
+    }%
+}
 
 % Point:
 %   \pt{A} -> \mathbf{p}^{A}
@@ -124,8 +172,17 @@
 % General point with point name and frame:
 %   \pointf{P}{A} -> \mathbf{p}_{P}^{A}
 \newcommand{\pointf}[2]{\mathbf{p}_{#1}^{#2}}
+
 % Relative measurement
-\newcommand{\RelMeas}[3]{\mat{Z}^{#1}_{#2,#3}}
+\newcommand{\RelMeas}[3][]{%
+    \ensuremath{%
+    \if\relax\detokenize{#1}\relax
+        \tensor*[^{#2}_{#3}]{\mathbf{Z}}{}%
+    \else
+        \tensor*[^{#2}_{#3}]{\mathbf{Z}}{_{#1}}%
+    \fi
+    }%
+}
 
 % ---------- Lie groups and Lie algebra ----------
 \newcommand{\SO}[1]{\mathrm{SO}(#1)}
