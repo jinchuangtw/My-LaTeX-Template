@@ -1,0 +1,87 @@
+%! TeX program = lualatex
+\documentclass[10pt,xcolor={x11names}]{beamer}
+\input{BeamerEnv.tex}
+\input{MathFunction.tex}
+
+\AtBeginSection[]
+{
+    \begin{frame}<beamer>
+        \frametitle{Outline}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+%-----------------------------------------------------------------------------
+% DOCUMENT PROPERTIES
+
+\title[Short Title]{Title}
+
+\author[xxxxxxxx@gmail.com]{\textbf{Student:} Your Name \and \textbf{Professor:} Professor Name}
+
+\institute[NCKU-IAA IEC-Lab]
+{
+    \begin{tabular}{cc}
+        \begin{minipage}{0.15\linewidth}
+            \begin{figure}
+                \includegraphics[width = \linewidth]{IEC_Lab_Logo.png}
+            \end{figure}
+        \end{minipage}
+        &
+        \begin{minipage}{0.6\linewidth}
+            Intelligent Embedded Control Lab (IEC-Lab) \\
+            Department of Aeronautics and Astronautics \\
+            National Cheng Kung University \\
+            Tainan, Taiwan
+        \end{minipage}
+    \end{tabular}
+}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+    \maketitle
+\end{frame}
+
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+%=============================================================================
+
+\section{Research Overview}
+
+\begin{frame}{Frame Title 1}
+  Frame title can be different from section title.
+  \begin{itemize}
+    \item dododo
+    \item lululu
+  \end{itemize}
+  Eq.~\eqref{eq:label} is cool.
+  \begin{equation}
+      \Tf{W}{B} \T = \Tf{B}{W}
+    \label{eq:label}
+  \end{equation}
+  
+\end{frame}
+
+\begin{frame}{Frame Title 2}
+    Video can be inserted as below. Paper \cite{hsuHongKongUrbanNav2023} is good.
+    \movie[width=\linewidth, height=5cm, poster, autostart, showcontrols, loop]{}{Figure/urban_comparison_8x.mp4}
+\end{frame}
+
+%=============================================================================
+
+\section{Future Work}
+
+\begin{frame}{Future Work}
+   \checked~Work 1\\
+   \unchecked Work 2
+\end{frame}
+
+% Please name your .bib file as ref.bib and put it in the root
+\begin{frame}{References}
+    \printbibliography
+\end{frame}
+
+\end{document}

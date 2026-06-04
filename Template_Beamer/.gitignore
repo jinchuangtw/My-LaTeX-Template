@@ -1,0 +1,62 @@
+# =========================
+# LaTeX build artifacts
+# =========================
+
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.run.xml
+*.synctex.gz
+*.synctex
+*.toc
+*.lof
+*.lot
+*.loa
+
+# =========================
+# Generated output files
+# =========================
+
+main.pdf
+*.dvi
+*.xdv
+*.ps
+
+# =========================
+# Temporary / backup files
+# =========================
+
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+.DS_Store
+
+# =========================
+# LaTeX package-specific cache
+# =========================
+
+_minted-*/
+*.pyg
+*.vrb
+*.snm
+*.nav
+*.alg
+*.acr
+*.acn
+*.glo
+*.gls
+*.glg
+*.ist
+
+# =========================
+# Editor / IDE
+# =========================
+
+.vscode/
